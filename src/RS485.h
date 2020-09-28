@@ -28,12 +28,20 @@
 #define RS485_DEFAULT_TX_PIN 1 
 #endif
 
+#ifndef RS485_PORT_HARDWARE
+#define RS485_PORT_HARDWARE SERIAL_PORT_HARDWARE
+#endif
+
 #ifdef __AVR__
 #define RS485_DEFAULT_DE_PIN 2
 #define RS485_DEFAULT_RE_PIN -1
 #else
+#ifndef RS485_DEFAULT_DE_PIN
 #define RS485_DEFAULT_DE_PIN A6
+#endif
+#ifndef RS485_DEFAULT_RE_PIN
 #define RS485_DEFAULT_RE_PIN A5
+#endif
 #endif
 
 
